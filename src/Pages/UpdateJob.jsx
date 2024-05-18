@@ -19,7 +19,7 @@ const UpdateJob = () => {
       const onSubmit = (data) => {
         data.skills=selectedOption;
         console.log(data)
-        fetch(`http://localhost:5000/update-job/${id}`,{
+        fetch(`https://jobs-hub-backend.vercel.app/update-job/${id}`,{
           method: "PUT",
           headers:{"content-type": "application/json"},
           body: JSON.stringify(data)

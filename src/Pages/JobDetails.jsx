@@ -22,7 +22,7 @@ const JobDetails = () => {
   useEffect(() => {
   
 
-    fetch(`http://localhost:5000/all-jobs/${id}`)
+    fetch(`https://jobs-hub-backend.vercel.app/all-jobs/${id}`)
       .then((res) => res.json())
       .then((data) => setJob(data));
   }, []);
@@ -56,7 +56,7 @@ const JobDetails = () => {
     formData.append('JobPosition', job.jobTitle);
 
     try {
-      const response = await fetch("http://localhost:5000/application", {
+      const response = await fetch("https://jobs-hub-backend.vercel.app/application", {
         method: "POST",
         body: formData
       });

@@ -12,7 +12,7 @@ const Applicant = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        fetch(`http://localhost:5000/all-applications/${user?.email}`)
+        fetch(`https://jobs-hub-backend.vercel.app/all-applications/${user?.email}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch jobs");

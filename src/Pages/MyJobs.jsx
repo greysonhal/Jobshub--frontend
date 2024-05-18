@@ -22,7 +22,7 @@ const MyJobs = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/myJobs/${user?.email}`)
+    fetch(`https://jobs-hub-backend.vercel.app/myJobs/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);
@@ -32,7 +32,7 @@ const MyJobs = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/all-application/${user?.email}`)
+    fetch(`https://jobs-hub-backend.vercel.app/all-application/${user?.email}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch jobs");
@@ -60,7 +60,7 @@ const MyJobs = () => {
   };
 
   const updateJobStatus = (id, status) => {
-    fetch(`http://localhost:5000/update-application/${id}`, {
+    fetch(`https://jobs-hub-backend.vercel.app/update-application/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -98,7 +98,7 @@ const MyJobs = () => {
     if(drive===""){
       const newWindow = window.open(drive, "_blank");
     }
-    const newWindow = window.open(`http://localhost:5000/${drive}`, "_blank");
+    const newWindow = window.open(`https://jobs-hub-backend.vercel.app/${drive}`, "_blank");
     if (newWindow) {
       newWindow.focus();
     } 
@@ -139,7 +139,7 @@ const MyJobs = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/job/${id}`, {
+    fetch(`https://jobs-hub-backend.vercel.app/job/${id}`, {
       method: "DELETE"
     }).then(res => res.json()).then((data) => {
       if (data.acknowledged === true) {
